@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -10,13 +10,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="badtrades_null.txt" />
+    <None Remove="badtrades_one_negative.txt" />
     <None Remove="goodtrades.txt" />
+    <None Remove="goodtrades_ten.txt" />
+    <None Remove="negativetrades.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="badtrades_null.txt" />
+    <EmbeddedResource Include="badtrades_one_negative.txt" />
     <EmbeddedResource Include="goodtrades.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="goodtrades_ten.txt" />
+    <EmbeddedResource Include="negativetrades.txt" />
   </ItemGroup>
 
   <ItemGroup>
