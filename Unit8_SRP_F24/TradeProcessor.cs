@@ -48,14 +48,14 @@ namespace SingleResponsibilityPrinciple
             }
 
             int tradeAmount;
-            if (!int.TryParse(fields[1], out tradeAmount))
+            if (!int.TryParse(fields[1], out tradeAmount) || tradeAmount <= 0)
             {
                 LogMessage("WARN: Trade amount on line {0} not a valid integer: '{1}'", currentLine, fields[1]);
                 return false;
             }
 
             decimal tradePrice;
-            if (!decimal.TryParse(fields[2], out tradePrice))
+            if (!decimal.TryParse(fields[2], out tradePrice) || tradePrice <= 0)
             {
                 LogMessage("WARN: Trade price on line {0} not a valid decimal: '{1}'", currentLine, fields[2]);
                 return false;
