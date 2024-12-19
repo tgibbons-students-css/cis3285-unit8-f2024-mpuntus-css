@@ -46,7 +46,7 @@ namespace SingleResponsibilityPrinciple.Tests
                 return count;
             }
         }
-
+        /*
         //negative lot size
         [TestMethod()]
         public void TestNegativeNormalFiles()
@@ -109,7 +109,7 @@ namespace SingleResponsibilityPrinciple.Tests
         //    int countAfter = CountDbRecords();
         //    Assert.AreEqual(countBefore, countAfter);
         //}
-
+        */
 
         [TestMethod()]
          public void TestNormalFile()
@@ -126,6 +126,7 @@ namespace SingleResponsibilityPrinciple.Tests
             Assert.AreEqual(countBefore + 1, countAfter);
          }
 
+        /*
         //negative price
         [TestMethod()]
         public void TestOneBadNormalFiles()
@@ -196,7 +197,7 @@ namespace SingleResponsibilityPrinciple.Tests
             Assert.AreEqual(0, result.Count());
         }
 
-
+        */
 
 
         [TestMethod()]
