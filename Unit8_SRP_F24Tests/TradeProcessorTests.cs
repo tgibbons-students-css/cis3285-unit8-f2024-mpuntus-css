@@ -46,7 +46,7 @@ namespace SingleResponsibilityPrinciple.Tests
                 return count;
             }
         }
-        /*
+        
         //negative lot size
         [TestMethod()]
         public void TestNegativeNormalFiles()
@@ -63,6 +63,7 @@ namespace SingleResponsibilityPrinciple.Tests
             Assert.AreEqual(countBefore + 0, countAfter);
         }
 
+        //10 trades
         [TestMethod()]
         public void TestTenNormalFiles()
         {
@@ -78,6 +79,7 @@ namespace SingleResponsibilityPrinciple.Tests
             Assert.AreEqual(countBefore + 10, countAfter);
         }
 
+        // no trades, empty file
         [TestMethod()]
         public void TestNullNormalFiles()
         {
@@ -94,23 +96,25 @@ namespace SingleResponsibilityPrinciple.Tests
         }
 
 
+        /*
+        [TestMethod()]
+        public void TestExceptionNormalFiles()
+        {
+            //Arrange
+            var tradeStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Unit8_SRP_F24Tests.Non_Exsisting_File.txt");
+            var tradeProcessor = new TradeProcessor();
 
-        //[TestMethod()]
-        //public void TestExceptionNormalFiles()
-        //{
-        //    //Arrange
-        //    var tradeStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Unit8_SRP_F24Tests.Non_Exsisting_File.txt");
-        //    var tradeProcessor = new TradeProcessor();
-
-        //    //Act
-        //    int countBefore = CountDbRecords();
-        //    tradeProcessor.ProcessTrades(tradeStream);
-        //    //Assert
-        //    int countAfter = CountDbRecords();
-        //    Assert.AreEqual(countBefore, countAfter);
-        //}
+            //Act
+            int countBefore = CountDbRecords();
+            tradeProcessor.ProcessTrades(tradeStream);
+            //Assert
+            int countAfter = CountDbRecords();
+            Assert.AreEqual(countBefore, countAfter);
+        }
         */
 
+
+        // from Learning Activity, only 1 trade
         [TestMethod()]
          public void TestNormalFile()
          {
@@ -126,7 +130,7 @@ namespace SingleResponsibilityPrinciple.Tests
             Assert.AreEqual(countBefore + 1, countAfter);
          }
 
-        /*
+        
         //negative price
         [TestMethod()]
         public void TestOneBadNormalFiles()
@@ -197,7 +201,7 @@ namespace SingleResponsibilityPrinciple.Tests
             Assert.AreEqual(0, result.Count());
         }
 
-        */
+        
 
 
         [TestMethod()]
