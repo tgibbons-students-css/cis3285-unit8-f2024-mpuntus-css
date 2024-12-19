@@ -1,13 +1,18 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.SqlServer.Server;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SingleResponsibilityPrinciple;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SingleResponsibilityPrinciple.Tests
 {
@@ -132,6 +137,13 @@ namespace SingleResponsibilityPrinciple.Tests
             Assert.AreEqual(countBefore, countAfter);
         }
 
+
+        // As a developer,
+        //I want the ReadTradeData_ValidInput_ReturnsLines() method to
+        //determine trade data and handle unexpected formats properly,
+        //so that the system can provide meaningful
+        //feedback and avoid processing invalid or unsupported trades.
+
         [TestMethod()]
         public void ReadTradeData_ValidInput_ReturnsLines()
         {
@@ -149,9 +161,16 @@ namespace SingleResponsibilityPrinciple.Tests
             var result = tradeProcessor.ReadTradeData(stream);
 
             // Assert
-            Assert.AreEqual(-999, result.Count());
+            Assert.AreEqual(2, result.Count());
         }
 
+
+        //I want the ReadTradeData_EmptyFile_ReturnsEmptyList method
+        //to handle empty files properly,
+        //so that the system does not
+        //throw errors and can return an empty
+        //list when no trade data is present in the file.
+        
         [TestMethod()]
         public void ReadTradeData_EmptyFile_ReturnsEmptyList()
         {
@@ -169,7 +188,7 @@ namespace SingleResponsibilityPrinciple.Tests
             var result = tradeProcessor.ReadTradeData(stream);
 
             // Assert
-            Assert.AreEqual(-1, result.Count());
+            Assert.AreEqual(0, result.Count());
         }
 
 
