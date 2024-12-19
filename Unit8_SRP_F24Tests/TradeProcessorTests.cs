@@ -149,7 +149,7 @@ namespace SingleResponsibilityPrinciple.Tests
             var result = tradeProcessor.ReadTradeData(stream);
 
             // Assert
-            Assert.AreEqual(2, result.Count());
+            Assert.AreEqual(-999, result.Count());
         }
 
         [TestMethod()]
@@ -169,7 +169,7 @@ namespace SingleResponsibilityPrinciple.Tests
             var result = tradeProcessor.ReadTradeData(stream);
 
             // Assert
-            Assert.AreEqual(0, result.Count());
+            Assert.AreEqual(-1, result.Count());
         }
 
 
